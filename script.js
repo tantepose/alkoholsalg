@@ -1,8 +1,8 @@
 // get deviating dates from calendar.js
 const { closed_dates, limited_dates } = require("./calendar.js")
 
-// define today
-const today = {
+// define a day
+const dayPrototype = {
     dateObject: new Date (),
     get date () {
         return this.dateObject.getDate() + "/" + (this.dateObject.getMonth() + 1)
@@ -13,30 +13,19 @@ const today = {
     status: undefined
 }
 
+// make today
+const today = Object.create(dayPrototype)
 today.status = getStatus(today.date, today.day)
-
 console.log(today)
 console.log("\n")
 
-// define tomorrow
-const tomorrow = {
-    dateObject: new Date (),
-    get date () {
-        return this.dateObject.getDate() + "/" + (this.dateObject.getMonth() + 1)
-    },
-    get day () {
-        return this.dateObject.getDay()
-    },
-    status: undefined
-}
-tomorrow.dateObject.setDate(tomorrow.dateObject.getDate()+1)
-
+// make tomorrow
+const tomorrow = Object.create(dayPrototype)
+tomorrow.dateObject.setDate(tomorrow.dateObject.getDate() + 1) //make tomorrow actual tomorrow
 tomorrow.status = getStatus(tomorrow.date, tomorrow.day)
-
 console.log(tomorrow)
 
 // functions
-
 function getStatus (date, day) {
     console.log("🔍 Checking " + date + " for abnormalities...")
 
