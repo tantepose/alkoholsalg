@@ -15,34 +15,39 @@ const dayPrototype = {
 
 // make today
 const today = Object.create(dayPrototype)
-today.status = getStatus(today.date, today.day)
-console.log(today)
-console.log("\n")
+today.status = getStatus(today)
+console.log(today + "\n")
 
 // make tomorrow
 const tomorrow = Object.create(dayPrototype)
-tomorrow.dateObject.setDate(tomorrow.dateObject.getDate() + 1) //make tomorrow actual tomorrow
-tomorrow.status = getStatus(tomorrow.date, tomorrow.day)
-console.log(tomorrow)
+tomorrow.dateObject.setDate(tomorrow.dateObject.getDate() + 1) // make tomorrow actually tomorrow
+tomorrow.status = getStatus(tomorrow)
+console.log(tomorrow + "\n")
+
+// make day after tomorrow
+const day_after_tomorrow = Object.create(dayPrototype)
+day_after_tomorrow.dateObject.setDate(day_after_tomorrow.dateObject.getDate() + 2) // NOT WORKING: make day_after_tomorrow actually day_after_tomorrow
+day_after_tomorrow.status = getStatus(day_after_tomorrow)
+console.log(day_after_tomorrow)
 
 // functions
-function getStatus (date, day) {
-    console.log("🔍 Checking " + date + " for abnormalities...")
+function getStatus (date) {
+    console.log("🔍 Checking " + date.date + " for abnormalities...")
 
-    if (closed_dates.indexOf(date) > -1) {
+    if (closed_dates.indexOf(date.date) > -1) {
         console.log("🎯 Found date in closed_dates!")
         return "closed"
-    } else if (limited_dates.indexOf(date) > -1) {
+    } else if (limited_dates.indexOf(date.date) > -1) {
         console.log("🎯 Found date in limited_dates!")
         return "limited"
-    } else if (day == 0) {
-        console.log("🎯 Date not in calendar, but is sunday!")
+    } else if (date.day == 0) {
+        console.log("🎯 Date not found, but is sunday!")
         return "closed"
-    } else if (day == 6) {
-        console.log("🎯 Date not in calendar, but is saturday!")
+    } else if (date.day == 6) {
+        console.log("🎯 Date not found, but is saturday!")
         return "limited"
     } else {
-        console.log("🤷‍♀️ Date all normal!")
+        console.log("📂 Date not found, all normal!")
         return "normal"
     }
 }
