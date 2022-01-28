@@ -1,22 +1,23 @@
 // get deviating dates from calendar.js
-const { closed_dates, limited_dates } = require("./calendar.js")
+// const { closed_dates, limited_dates } = require("./calendar.js")
 
 // object for storing the actual text to display
+// remember to point out that it varies from place to place etc etc
 const info = {
     closed: {
-        headline: "Alkoholsalg stengt.",
-        info_wine: "Polet stengt.", 
-        info_beer: "Ølsalg stengt."
+        headline: "Stengt alkoholsalg.",
+        info_wine: "Polet: stengt", 
+        info_beer: "Ølsalg: stengt"
     },
     limited: {
-        headline: "Alkoholsalg begrensa.",
-        info_wine: "Polet åpent fra rundt 10:00 til 14:00.",
-        info_beer: "Ølsalg åpent fra rundt 10:00 til 15:00."
+        headline: "Begrensa alkoholsalg.",
+        info_wine: "Polet: 10:00 - 15:00",
+        info_beer: "Ølsalg: 9:00 - 18:00"
     },
     normal: {
-        headline: "Alkoholsalg åpent.",
-        info_wine: "Polet åpent fra rundt 10:00 til 18:00.",
-        info_beer: "Ølsalg åpent fra rundt 10:00 til 18:00."
+        headline: "Normalt alkoholsalg.",
+        info_wine: "Polet: 10:00 - 18:00",
+        info_beer: "Ølsalg: 9:00 - 20:00"
     }
 }
 
