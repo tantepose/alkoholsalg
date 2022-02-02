@@ -3,14 +3,23 @@
     box-sizing: border-box;
 }
 
+:root {
+    --background-color: #161722;
+    --text-color: #161722;
+    --fill-color-1: #D16BA5;
+    --fill-color-2: #86A8E7;
+    --fill-color-3: #5FFBF1;
+}
+
 html,body
 {
-    background-color: #333333;
     margin: 0px;
-    font-family: 'Fredoka One', cursive;
-    font-size: 100%;
+    background-color: var(--background-color);
+    font-family: 'Cutive Mono', monospace;    font-size: 100%;
     text-align: center;
     height: 100%;
+
+    background-image: linear-gradient(to left bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 }
 
 .page 
@@ -36,7 +45,7 @@ html,body
     padding: 0px;
     width: 90%;
 
-    box-shadow: 0px 0px 50px black;
+    box-shadow: 0px 0px 50px var(--text-color);
 }
 
 .item
@@ -53,17 +62,17 @@ html,body
 
 #today
 {
-    background-color: #E0AB5C;
+    background-color: var(--fill-color-1);
 }
 
 #tomorrow
 {
-    background-color: #D48743;
+    background-color: var(--fill-color-2);
 }
 
 #dayafter
 {
-    background-color: #CC6531;
+    background-color: var(--fill-color-3);
 }
 
 .disclaimer
@@ -77,13 +86,13 @@ html,body
 
 h1
 {
-    font-size: 5.0em;
+    font-size: 3em;
     margin: 5px;
 }
 
 h2
 {
-    font-size: 3.0em;
+    font-size: 2.0em;
     margin: 5px;
 }
 
@@ -96,15 +105,10 @@ h3
 h4, a
 {
     margin: 5px;
-    color: grey;
+    color: var(--text-color);
     margin-top: 10px;
 }
 
-.material-icons.md-48
-{
-    font-size: 100px;
-    color: white;
-}
 
 /* mobil */
 @media screen and (max-width: 1000px) 
@@ -127,16 +131,12 @@ h4, a
         margin: 0px;
     }
 
-    .disclaimer
-    {
-    }
-
     .item
     {
         width: 100%;
     }
 
-    h4
+    #disclaimer
     {
         display: none;
     }

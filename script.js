@@ -6,18 +6,18 @@
 const info = {
     closed: {
         headline: "Stengt alkoholsalg.",
-        info_wine: "Polet: stengt", 
-        info_beer: "Ølsalg: stengt"
+        details_wine: "Polet: stengt", 
+        details_beer: "Ølsalg: stengt"
     },
     limited: {
         headline: "Begrensa alkoholsalg.",
-        info_wine: "Polet: 10:00 - 15:00",
-        info_beer: "Ølsalg: 9:00 - 18:00"
+        details_wine: "Polet: 10:00 - 15:00",
+        details_beer: "Ølsalg: 9:00 - 18:00"
     },
     normal: {
         headline: "Normalt alkoholsalg.",
-        info_wine: "Polet: 10:00 - 18:00",
-        info_beer: "Ølsalg: 9:00 - 20:00"
+        details_wine: "Polet: 10:00 - 18:00",
+        details_beer: "Ølsalg: 9:00 - 20:00"
     }
 }
 
@@ -44,32 +44,41 @@ function getStatus (date) {
 
     if (closed_dates.indexOf(date.date()) > -1) {
         console.log("🎯 Found date in closed_dates!")
-        return "closed"
+        return info["closed"]
     } else if (limited_dates.indexOf(date.date()) > -1) {
         console.log("🎯 Found date in limited_dates!")
-        return "limited"
+        return info["limited"]
     } else if (date.day() == 0) {
         console.log("🎯 Date not found, but is sunday!")
-        return "closed"
+        return info["closed"]
     } else if (date.day() == 6) {
         console.log("🎯 Date not found, but is saturday!")
-        return "limited"
+        return info["limited"]
     } else {
         console.log("🎯 Date not found, all normal!")
-        return "normal"
+        return info["normal"]
     }
+}
+
+function writeHTML (element, content) {
+    document.getElementById(element).children["summary"].innerHTML = content.headline
+    document.getElementById(element).children["details-wine"].innerHTML = content.details_wine
+    document.getElementById(element).children["details-beer"].innerHTML = content.details_beer
 }
 
 // make today
 const today = new day
-console.log("🍷 Todays headline: " + info[today.status()].headline + "\n")
+console.log("🍷 Todays headline: " + today.status().headline + "\n")
+writeHTML("today", today.status())
 
 // make tomorrow
 const tomorrow = new day
 tomorrow.dateObject.setDate(tomorrow.dateObject.getDate() + 1) // make tomorrow actually tomorrow
-console.log("🍷 Tomorrow's headline: " + info[tomorrow.status()].headline + "\n")
+console.log("🍷 Tomorrow's headline: " + tomorrow.status().headline + "\n")
+writeHTML("tomorrow", tomorrow.status())
 
 // make day after tomorrow
 const day_after_tomorrow = new day
 day_after_tomorrow.dateObject.setDate(day_after_tomorrow.dateObject.getDate() + 2) // make day_after_tomorrow actually day_after_tomorrow
-console.log("🍷 Day after tomorrow's headline: " + info[day_after_tomorrow.status()].headline + "\n")
+console.log("🍷 Day after tomorrow's headline: " + day_after_tomorrow.status().headline + "\n")
+writeHTML("dayafter", day_after_tomorrow.status())
