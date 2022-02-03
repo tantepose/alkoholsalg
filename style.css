@@ -21,6 +21,7 @@ html,body
     height: 100%;
 
     background-image: linear-gradient(to left bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+
 }
 
 .page 
@@ -46,7 +47,6 @@ html,body
     padding: 0px;
     width: 90%;
 
-    box-shadow: 0px 0px 50px var(--text-color);
 }
 
 .item
@@ -57,8 +57,24 @@ html,body
     justify-content: center;
     align-items: center;
 
-    margin: 0px;
+
     padding: 20px;
+
+    border-radius: 10px;
+    margin: 10px;
+
+    box-shadow:
+    2.8px 2.8px 2.2px rgba(0, 0, 0, 0.056),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.081),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.1),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.119),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.144),
+    100px 100px 80px rgba(0, 0, 0, 0.2)
+  ;
+  
+;
+
+
 }
 
 #today
@@ -113,7 +129,7 @@ h4, a
 
 
 /* mobil */
-@media screen and (max-width: 1000px) 
+@media screen and (max-width: 1300px) 
 {
     body
     {
@@ -133,10 +149,6 @@ h4, a
         margin: 0px;
     }
 
-    .item
-    {
-        width: 100%;
-    }
 
     #disclaimer
     {
