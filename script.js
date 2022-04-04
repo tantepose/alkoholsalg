@@ -4,17 +4,17 @@ const info = {
     closed: {
         headline: "👎 Stengt alkoholsalg.",
         details_wine: "Polet: stengt", 
-        details_beer: "Ølsalg: stengt"
+        details_beer: "Butikk: stengt"
     },
     limited: {
         headline: "🤏 Begrensa alkoholsalg.",
-        details_wine: "Polet: 10:00 - 15:00",
-        details_beer: "Ølsalg: 9:00 - 18:00"
+        details_wine: "Polet: 10.00 ~ 15.00",
+        details_beer: "Butikk: 9.00 ~ 18.00"
     },
     normal: {
         headline: "👌 Normalt alkoholsalg.",
-        details_wine: "Polet: 10:00 - 18:00",
-        details_beer: "Ølsalg: 9:00 - 20:00"
+        details_wine: "Polet: 10.00 ~ 18.00",
+        details_beer: "Butikk: 9.00 ~ 20.00"
     }
 }
 

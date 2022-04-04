@@ -89,21 +89,30 @@ h4, a {
     margin-top: 10px;
 }
 
-/* smart */
+/* smaller */
 @media screen and (max-width: 1400px) {
     body {
         font-size: 75%;
     }
 }
 
-/* mobil */
+/* even smaller */
 @media screen and (max-width: 1100px) {
-    body {
-        background-image: none;
-        background-color: var(--text-color);
-    }
-
     .content {
         flex-direction: column;
     }
 }
+
+/* smallest */
+@media screen and (max-width: 600px) {
+    body {
+        background-image: none;
+        background-color: var(--text-color);
+    }
+    
+    #disclaimer {
+        color: var(--fill-color-2);
+    }
+}
+
+
