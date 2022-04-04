@@ -1,6 +1,3 @@
-// get deviating dates from calendar.js
-// const { closed_dates, limited_dates } = require("./calendar.js")
-
 // object for storing the actual text to display
 // remember to point out that it varies from place to place etc etc
 const info = {
@@ -10,12 +7,12 @@ const info = {
         details_beer: "Ølsalg: stengt"
     },
     limited: {
-        headline: "🤏 Begrensa alkoholsalg. ",
+        headline: "🤏 Begrensa alkoholsalg.",
         details_wine: "Polet: 10:00 - 15:00",
         details_beer: "Ølsalg: 9:00 - 18:00"
     },
     normal: {
-        headline: "👌 Normalt alkoholsalg. ",
+        headline: "👌 Normalt alkoholsalg.",
         details_wine: "Polet: 10:00 - 18:00",
         details_beer: "Ølsalg: 9:00 - 20:00"
     }
@@ -60,25 +57,25 @@ function getStatus (date) {
     }
 }
 
-function writeHTML (element, content) {
-    document.getElementById(element).children["summary"].innerHTML = content.headline
-    document.getElementById(element).children["details-wine"].innerHTML = content.details_wine
-    document.getElementById(element).children["details-beer"].innerHTML = content.details_beer
+// writing the HTML in each .item box' child elements
+function writeHTML (element, content, currentDay) {
+    const elements = document.getElementById(element).children
+    elements["day-header"].children["day-name"].innerHTML = currentDay.dateObject.toLocaleDateString("no", { weekday: 'long' })
+    elements["summary"].innerHTML = content.headline
+    elements["details-wine"].innerHTML = content.details_wine
+    elements["details-beer"].innerHTML = content.details_beer
 }
 
-// make today
+// make and write today
 const today = new day
-console.log("🍷 Todays headline: " + today.status().headline + "\n")
-writeHTML("today", today.status())
+writeHTML("today", today.status(), today)
 
-// make tomorrow
+// make and write tomorrow
 const tomorrow = new day
 tomorrow.dateObject.setDate(tomorrow.dateObject.getDate() + 1) // make tomorrow actually tomorrow
-console.log("🍷 Tomorrow's headline: " + tomorrow.status().headline + "\n")
-writeHTML("tomorrow", tomorrow.status())
+writeHTML("tomorrow", tomorrow.status(), tomorrow)
 
-// make day after tomorrow
+// make and write day after tomorrow
 const day_after_tomorrow = new day
 day_after_tomorrow.dateObject.setDate(day_after_tomorrow.dateObject.getDate() + 2) // make day_after_tomorrow actually day_after_tomorrow
-console.log("🍷 Day after tomorrow's headline: " + day_after_tomorrow.status().headline + "\n")
-writeHTML("dayafter", day_after_tomorrow.status())
+writeHTML("dayafter", day_after_tomorrow.status(), day_after_tomorrow)
