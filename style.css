@@ -3,8 +3,7 @@
 }
 
 :root {
-    --background-color: rgb(22, 23, 34);
-    --text-color: rgb(22, 23, 34);
+    --text-color: rgb(34, 35, 54);
     --fill-color-1: #d16ba5;
     --fill-color-2: rgb(134, 168, 231);
     --fill-color-3: rgb(95, 251, 241);
@@ -16,6 +15,7 @@ html,body {
 }
 
 body {
+    color: var(--text-color);
     font-family: 'Cutive Mono', monospace;
     font-weight: normal;
     text-align: center;
@@ -68,10 +68,6 @@ body {
     background-color: var(--fill-color-3);
 }
 
-#disclaimer {
-
-}
-
 h1 {
     font-size: 3em;
     margin: 5px;
@@ -90,7 +86,6 @@ h3 {
 
 h4, a {
     margin: 5px;
-    color: var(--text-color);
     margin-top: 10px;
 }
 
@@ -103,15 +98,12 @@ h4, a {
 
 /* mobil */
 @media screen and (max-width: 1100px) {
+    body {
+        background-image: none;
+        background-color: var(--text-color);
+    }
+
     .content {
         flex-direction: column;
-    }
-
-    .page {
-
-    }
-
-    #disclaimer {
-        display: flex;
     }
 }
