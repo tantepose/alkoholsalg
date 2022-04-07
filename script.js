@@ -2,19 +2,19 @@
 // remember to point out that it varies from place to place etc etc
 const info = {
     closed: {
-        headline: "👎 Stengt alkoholsalg.",
-        details_wine: "Polet: stengt", 
-        details_beer: "Butikk: stengt"
+        headline: "👎 stengt alkoholsalg",
+        details_wine: "polet: stengt", 
+        details_beer: "butikk: stengt"
     },
     limited: {
-        headline: "🤏 Begrensa alkoholsalg.",
-        details_wine: "Polet: 10.00 ~ 15.00",
-        details_beer: "Butikk: 9.00 ~ 18.00"
+        headline: "🤏 begrensa alkoholsalg",
+        details_wine: "polet: 10.00 ~ 16.00",
+        details_beer: "butikk: 9.00 ~ 18.00"
     },
     normal: {
-        headline: "👌 Normalt alkoholsalg.",
-        details_wine: "Polet: 10.00 ~ 18.00",
-        details_beer: "Butikk: 9.00 ~ 20.00"
+        headline: "👌 normalt alkoholsalg",
+        details_wine: "polet: 10.00 ~ 18.00",
+        details_beer: "butikk: 9.00 ~ 20.00"
     }
 }
 
